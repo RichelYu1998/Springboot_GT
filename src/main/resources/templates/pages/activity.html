@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+    <h2>活动列表页面</h2>
+</div>
+<div class="container">
+    <button type="button" class="btn btn-primary">创建活动</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th><input type="checkbox">全选</th>
+            <th>名称</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="a:${list}">
+            <!-- 查询操作 -->
+            <td><input type="checkbox"></td>
+            <td th:text="${a.title}">互动答疑</td>
+            <td th:text="${#dates.format(a.startTime, 'yyyy/MM/dd HH:mm')}">2020/12/12</td>
+            <td th:text="${#dates.format(a.endTime, 'yyyy/MM/dd HH:mm')}">2020/12/15</td>
+            <td th:text="${a.state==1?'有效':'失效'}">有效</td>
+            <!-- 删除操作 -->
+            <td><button type="button" class="btn btn-danger btn-sm" th:onclick="doDelete([[${a.id}]])">delete</button> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function doDelete(id){
+        //confirm为window对象中的一个方法，此方法的返回值为true或false
+        if(!confirm("确认删除吗"))return;
+        //基于id执行记录的删除操作
+        location.href="/activity/doDeleteById?id="+id;
+    }
+</script>
+</body>
+</html>
