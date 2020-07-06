@@ -43,9 +43,9 @@ public class ActivityController{
     * */
     @RequestMapping("doSaveObject")
     public String doSaveObject(Activity entity){
-        System.out.println("contontroller.entity"+entity);
+        System.out.println(entity);
         activityService.saveObject(entity);
-        return "redirect:activity.html";
+        return "activity.html";
     }
     @RequestMapping("activity-add.html")
     public String doActivityAddUI(){

@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu.dao.ActivityDao">
     <insert id="insertObject">
-        insert into tb_activity
-        (title,category,startTime,endTime,remark,state,createdTime,createdUser)
+            insert into tb_activity
+            (title,category,startTime,endTime,remark,state,createdTime,createdUser)
             values
-        (#{title},#{category},#{startTime},#{endTime},#{remark},1,now(),#{createdUser})
-    </insert>
+            (#{title},#{category},#{startTime},#{endTime},#{remark},1,now(),#{createdUser})
+      </insert>
 </mapper>

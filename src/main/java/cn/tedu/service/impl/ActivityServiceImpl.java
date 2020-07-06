@@ -21,15 +21,14 @@ public class ActivityServiceImpl implements ActivityService {
     * 删除数据
     * */
     @Override
-    public List<Activity> deleteById(Long id) {
+    public int deleteById(Long id) {
         return  activityDao.deleteById(id);
     }
     /*
-    * 保存数据
-    * */
+     * 保存数据
+     * */
     @Override
     public int saveObject(Activity entity) {
         return activityDao.insertObject(entity);
     }
-
 }

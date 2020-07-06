@@ -12,7 +12,7 @@ public interface ActivityService {
     /*
     * 删除数据
     * */
-    List<Activity> deleteById(Long id);
+    int deleteById(Long id);
     /*
     * 保存数据
     * */

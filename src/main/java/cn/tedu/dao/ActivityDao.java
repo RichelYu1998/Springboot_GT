@@ -18,6 +18,9 @@ public interface ActivityDao {
     * 删除数据
     * */
     @Delete("delete from tb_activity where id=#{id}")
-    List<Activity> deleteById(Long id);
+    int deleteById(Long id);
+    /*
+    * 保存数据
+    * */
     int insertObject(Activity entity);
 }

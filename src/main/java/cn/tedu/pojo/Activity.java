@@ -13,7 +13,7 @@ public class Activity {
     private String remark;
     private Integer state;
     private Date createdTime;
-    private String createdUser;
+    private String createdUser; //有登陆模块的话，是登陆用户
 
     public Long getId() {
         return id;
@@ -87,4 +87,18 @@ public class Activity {
         this.createdUser = createdUser;
     }
 
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", category='" + category + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", remark='" + remark + '\'' +
+                ", state=" + state +
+                ", createdTime=" + createdTime +
+                ", createdUser='" + createdUser + '\'' +
+                '}';
+    }
 }
