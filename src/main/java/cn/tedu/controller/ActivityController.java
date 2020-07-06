@@ -3,18 +3,12 @@ package cn.tedu.controller;
 import cn.tedu.pojo.Activity;
 import cn.tedu.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -51,5 +45,19 @@ public class ActivityController{
     @RequestMapping("activity-add.html")
     public String doActivityAddUI(){
         return "activity-add";
+    }
+    /*
+     * 基于id查询数据
+     * */
+    @RequestMapping("doFindById")
+    public String doFindById(Long id,Model model){
+        Activity aty = activityService.findById(id);
+        model.addAttribute("aty",aty);
+        return "activity-edit";
+    }
+    @RequestMapping("doUpdateObject")
+    public String doUpdateObject(Activity entity){
+        activityService.updateObject(entity);
+        return "redirect:activity.html";
     }
 }

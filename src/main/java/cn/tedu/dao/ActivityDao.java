@@ -23,4 +23,14 @@ public interface ActivityDao {
     * 保存数据
     * */
     int insertObject(Activity entity);
+    /*
+    * 基于id查询数据
+    * */
+    @Select("select * from tb_activity where id=#{id}")
+    Activity findById(Long id);
+    /*
+    * 更新数据
+    * */
+    int updateObject(Activity entity);
+
 }

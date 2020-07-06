@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>Bootstrap 101 Template</title>
+
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-<div>
+
+<div class="container">
     <h2>活动列表页面</h2>
 </div>
 <div class="container">
@@ -24,19 +27,21 @@
             <th>开始时间</th>
             <th>结束时间</th>
             <th>状态</th>
+            <th colspan="2">操作</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="a:${list}">
-            <!-- 查询操作 -->
             <td><input type="checkbox"></td>
             <td th:text="${a.title}">互动答疑</td>
             <td th:text="${#dates.format(a.startTime, 'yyyy/MM/dd HH:mm')}">2020/12/12</td>
             <td th:text="${#dates.format(a.endTime, 'yyyy/MM/dd HH:mm')}">2020/12/15</td>
             <td th:text="${a.state==1?'有效':'失效'}">有效</td>
-            <!-- 删除操作 -->
-            <td><button type="button" class="btn btn-danger btn-sm" th:onclick="doDelete([[${a.id}]])">delete</button>
-                <button type="button" class="btn btn-warning btn-sm" th:onclick="doFindById([$[a.id]])">update</button>
+            <td><button type="button" class="btn btn-danger btn-sm"
+                        th:onclick="doDelete([[${a.id}]])">delete</button>
+                <button type="button" class="btn btn-warning btn-sm"
+                        th:onclick="doFindById([[${a.id}]])">update</button>
+
             </td>
         </tr>
         </tbody>
@@ -53,6 +58,10 @@
         //基于id执行记录的删除操作
         location.href="/activity/doDeleteById?id="+id;
     }
+    function doFindById(id){
+        location.href="/activity/doFindById?id="+id;
+    }
 </script>
+
 </body>
 </html>

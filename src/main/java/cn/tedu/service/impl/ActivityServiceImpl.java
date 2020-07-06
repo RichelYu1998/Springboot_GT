@@ -31,4 +31,18 @@ public class ActivityServiceImpl implements ActivityService {
     public int saveObject(Activity entity) {
         return activityDao.insertObject(entity);
     }
+    /*
+    * 查数据
+    * */
+    @Override
+    public Activity findById(Long id) {
+        return activityDao.findById(id);
+    }
+    /*
+     * 改数据
+     * */
+    @Override
+    public int updateObject(Activity entity) {
+        return activityDao.updateObject(entity);
+    }
 }
