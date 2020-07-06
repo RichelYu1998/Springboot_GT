@@ -35,7 +35,9 @@
             <td th:text="${#dates.format(a.endTime, 'yyyy/MM/dd HH:mm')}">2020/12/15</td>
             <td th:text="${a.state==1?'有效':'失效'}">有效</td>
             <!-- 删除操作 -->
-            <td><button type="button" class="btn btn-danger btn-sm" th:onclick="doDelete([[${a.id}]])">delete</button> </td>
+            <td><button type="button" class="btn btn-danger btn-sm" th:onclick="doDelete([[${a.id}]])">delete</button>
+                <button type="button" class="btn btn-warning btn-sm" th:onclick="doFindById([$[a.id]])">update</button>
+            </td>
         </tr>
         </tbody>
     </table>
