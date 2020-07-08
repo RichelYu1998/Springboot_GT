@@ -10,9 +10,9 @@ public class Activity {
     private Long id;
     private String title;
     private String category;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date startTime;//java.util.Date
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date endTime;
     private String remark;
     private Integer state;
